@@ -7,6 +7,8 @@
 
 package App::NameChangeAssist::GitCheck;
 
+use strict;
+
 use App::NameChangeAssist::Boilerplate 'script';
 
 use Cwd;
@@ -56,4 +58,5 @@ sub check_config ( $app, $configfile ) {
 }
 
 1;
+
 

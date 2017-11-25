@@ -5,6 +5,8 @@
 # All Rights Reserved - See License
 #
 
+# PODNAME: namechangeassist
+
 use App::NameChangeAssist::Boilerplate 'script';
 
 use App::NameChangeAssist;

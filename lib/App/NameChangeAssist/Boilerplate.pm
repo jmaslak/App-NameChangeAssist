@@ -14,8 +14,8 @@ package App::NameChangeAssist::Boilerplate;
 
 This module serves two purposes.  First, it sets some default imports,
 and turns on the strictures I've come to rely upon.  It is a copy of
-the current-at-the-time C<JCM::Boilerplate>, but is included seperately
-to ensure that future changes to C<JCM::Boilerplate> don't break this
+the current-at-the-time C<JTM::Boilerplate>, but is included seperately
+to ensure that future changes to C<JTM::Boilerplate> don't break this
 module.
 
 This module optionally takes one of two parameters, 'script', 'class',

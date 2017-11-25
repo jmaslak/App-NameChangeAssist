@@ -7,6 +7,8 @@
 
 package App::NameChangeAssist::LoginCheck;
 
+use strict;
+
 use App::NameChangeAssist::Boilerplate 'script';
 
 sub run($app) {
@@ -30,7 +32,7 @@ sub check_one($app, $login) {
     if (!defined($current)) {
         if ($checked++) { return 1; }
 
-        $app->warn("LoginCheck: Could not check login name");
+        $app->warning("LoginCheck: Could not check login name");
         return 1;
     }
 

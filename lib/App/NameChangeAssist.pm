@@ -6,6 +6,7 @@
 #
 
 package App::NameChangeAssist v0.01.00;
+
 use strict;
 
 use File::FindStrings::Boilerplate 'class';
@@ -13,6 +14,7 @@ use File::FindStrings::Boilerplate 'class';
 use App::NameChangeAssist::DirectoryCheck;
 use App::NameChangeAssist::GitCheck;
 use App::NameChangeAssist::LoginCheck;
+use App::NameChangeAssist::SourceCheck;
 use Config::Any;
 use Perl6::Slurp;
 
@@ -141,6 +143,7 @@ sub run($self) {
     $ret += App::NameChangeAssist::DirectoryCheck::run($self);
     $ret += App::NameChangeAssist::LoginCheck::run($self);
     $ret += App::NameChangeAssist::GitCheck::run($self);
+    $ret += App::NameChangeAssist::SourceCheck::run($self);
 
     $self->info("Finished name change checking");
 
@@ -149,30 +152,37 @@ sub run($self) {
 
 sub logstartup($self) {
     $self->info("Started name change checking");
+    return;
 }
 
 sub info ( $self, @log ) {
     logit( $self, "I", @log );
+    return;
 }
 
 sub isok ( $self, @log ) {
     logit( $self, "D", @log, "...passed" );
+    return;
 }
 
 sub skip ( $self, @log ) {
     logit( $self, "D", @log, "...skipped" );
+    return;
 }
 
 sub notok ( $self, @log ) {
     logit( $self, "W", @log, "...NOT OK" );
+    return;
 }
 
-sub warn ( $self, @log ) {
+sub warning ( $self, @log ) {
     logit( $self, "W", @log );
+    return;
 }
 
 sub err ( $self, @log ) {
     logit( $self, "E", @log );
+    return;
 }
 
 sub logit ( $self, $type, @log ) {

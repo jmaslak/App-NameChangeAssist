@@ -7,6 +7,8 @@
 
 package App::NameChangeAssist::DirectoryCheck;
 
+use strict;
+
 use App::NameChangeAssist::Boilerplate 'script';
 
 use Cwd;
