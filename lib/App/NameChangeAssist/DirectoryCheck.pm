@@ -20,6 +20,10 @@ sub run($app) {
         $result += check_one($app, $login);
     }
 
+    if (! $result) {
+        $app->isok("$NAME: directory names");
+    }
+
     return $result;
 }
 
@@ -31,16 +35,12 @@ sub check_one($app, $login) {
 
     if ($current =~ m/\b$login\b/gis) {
         $ret++;
-        $app->notok("$NAME: checking current directory for $login");
-    } else {
-        $app->isok("$NAME: checking current directory for $login");
+        $app->notok("$NAME: current directory name contains $login");
     }
 
     if ( ($current ne $home) && ($home =~ m/\b$login\b/gis)) {
         $ret++;
-        $app->notok("$NAME: checking home directory for $login");
-    } else {
-        $app->isok("$NAME: checking home directory for $login");
+        $app->notok("$NAME: home directory name contains $login");
     }
 
     return $ret;

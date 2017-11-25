@@ -149,18 +149,6 @@ sub run($self) {
 
 sub logstartup($self) {
     $self->info("Started name change checking");
-
-    foreach my $name ( $self->bad_names->@* ) {
-        $self->info("Looking for bad name: $name");
-    }
-
-    foreach my $username ( $self->bad_usernames->@* ) {
-        $self->info("Looking for bad username: $username");
-    }
-
-    foreach my $email ( $self->bad_emails->@* ) {
-        $self->info("Looking for bad email: $email");
-    }
 }
 
 sub info ( $self, @log ) {

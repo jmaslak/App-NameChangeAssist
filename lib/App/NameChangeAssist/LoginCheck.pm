@@ -16,6 +16,10 @@ sub run($app) {
         $result += check_one($app, $login);
     }
 
+    if (! $result) {
+        $app->isok("LoginCheck: login name");
+    }
+
     return $result;
 }
 
@@ -31,10 +35,8 @@ sub check_one($app, $login) {
     }
 
     if (fc($current) eq fc($login)) {
-        $app->notok("LoginCheck: checking for $login");
+        $app->notok("LoginCheck: login name contains $login");
         return 1;
-    } else {
-        $app->isok("LoginCheck: checking for $login");
     }
 
     return 0;

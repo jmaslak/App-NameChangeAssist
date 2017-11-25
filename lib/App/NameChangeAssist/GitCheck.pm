@@ -25,6 +25,7 @@ sub run($app) {
     if ( $home ne $current ) {
         $result += check_config( $app, "$home/.gitconfig" );
     }
+    $app->isok("$NAME: git config contents");
 
     return $result;
 }
@@ -43,7 +44,6 @@ sub check_config ( $app, $configfile ) {
     my (@results) = find_words_in_file( $configfile, @bads );
 
     if (! scalar(@results)) {
-        $app->isok("$NAME: checking $configfile for old information");
         return 0;
     }
 
