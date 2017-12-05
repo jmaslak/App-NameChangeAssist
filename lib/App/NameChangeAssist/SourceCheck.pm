@@ -42,7 +42,12 @@ sub run($app) {
             if ( $name =~ m{/\.(?:build|git)/}gis) { return; }
 
             # Skip things that aren't source code
-            if ( $base !~ m/\.(?:c|cpp|pl|pm|pl6|sh)$/gis) { return; }
+            if ( $base =~ m/(CHANGE|LICENSE|README)/gis) {
+                # OK!
+            } elsif ( $base !~ m/\.(?:c|cpp|pl|pm|pl6|sh|html|css|js)$/gis) {
+                # Not OK
+                return;
+            }
 
             $result += check_file($app, $name, $base);
         },
